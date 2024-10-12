@@ -20,7 +20,7 @@ function App() {
     }
     setLoader(true);
     err.innerText = "";
-    const result = await axios.post("http://localhost:8000/weather", {
+    const result = await axios.post("https://weather-backend-sv6y.onrender.com/weather", {
       city: city,
     });
 
