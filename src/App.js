@@ -1,6 +1,14 @@
-import axios from "axios";
-import "./App.css";
-import { useEffect, useState } from "react";
+import './App.css';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
+import CityImg from './assets/City.png';
+import Cloudy from './assets/cloudy.png';
+import Coordinate from './assets/coordinate.png';
+import Humidity from './assets/humidity.png';
+import Visibility from './assets/visibility.png';
+import Windy from './assets/windy.png';
+import { Circles } from 'react-loader-spinner';
+
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState([]);
@@ -14,7 +22,7 @@ function App() {
     
     setWeather([]);
     const err = document.getElementById("error") || null;
-    if (city.length == 0) {
+    if (city.length === 0) {
       err.innerText = "Please Enter City First !!!";
       return;
     }
@@ -32,11 +40,11 @@ function App() {
   };
 
   return (
-    <>
+   <>
       <div className="bg-dark p-5 text-white">
         <h1 className="mb-3 text-center">Weather Checker</h1>
         <div className="row justify-content-around mb-5">
-          <div className="w-50">
+          <div className="w-50 mobileInput">
             <input
               type="text"
               className="form-control"
@@ -57,12 +65,24 @@ function App() {
             />
           </div>
         </div>
-
-        {Object.keys(weather).length > 0 ? <>
+        {loader ?
+        <div className='d-flex justify-content-around'>
+          <Circles
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        />
+        </div>
+        : 
+        Object.keys(weather).length > 0 ? <>
         <div className="text-center">
           <div className="card-border">
             <div className="mb-2">
-              <img src="../public/City.png" className="h-150 w-100" alt="windy" />
+              <img src={CityImg} className="h-150 w-25" alt="city" />
               <p className="">City</p>
             </div>
             <div className="">
@@ -75,7 +95,7 @@ function App() {
 
         <div className="row">
           
-            {weather?.weather?.map((data: any) => {
+            {weather?.weather?.map((data) => {
               return (
                 <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                 <div key={data?.id} className="card-border">
@@ -83,6 +103,7 @@ function App() {
                     <img
                       src={`https://openweathermap.org/img/wn/${data?.icon}@2x.png`}
                       className="h-150 w-100"
+                      alt='weatherimage'
                     />
                   </div>
                   <div className="align-content-center">
@@ -97,7 +118,7 @@ function App() {
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
             <div className="card-border">
               <div className="mb-2">
-                <img src="../public/windy.png" className="h-100 w-100" alt="windy" />
+                <img src={Windy} className="h-100 w-100" alt="windy" />
                 <p className="">Windy</p>
               </div>
               <div className="">
@@ -109,7 +130,7 @@ function App() {
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
             <div className="card-border">
               <div className="mb-2">
-                <img src="../public/cloudy.png" className="h-100 w-100" alt="windy" />
+                <img src={Cloudy} className="h-100 w-100" alt="windy" />
                 <p className="">Clouds</p>
               </div>
               <div className="">
@@ -121,7 +142,7 @@ function App() {
             <div className="card-border">
               <div className="mb-2">
                 <img
-                  src="../public/humidity.png"
+                  src={Humidity}
                   className="h-100 w-100"
                   alt="windy"
                 />
@@ -136,7 +157,7 @@ function App() {
             <div className="card-border">
               <div className="mb-2">
                 <img
-                  src="../public/coordinate.png"
+                  src={Coordinate}
                   className="h-100 w-100"
                   alt="windy"
                 />
@@ -152,7 +173,7 @@ function App() {
             <div className="card-border">
               <div className="mb-2">
                 <img
-                  src="../public/visibility.png"
+                  src={Visibility}
                   className="h-150 w-100"
                   alt="windy"
                 />
