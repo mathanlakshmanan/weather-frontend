@@ -1,0 +1,29 @@
+#root {
+  /* max-width: 1280px;
+  margin: 0 auto; */
+  padding: 2rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .w-100{
+    width: 100% !important;
+  }
+}
+
+.h-150{
+  height: 150px;
+}
+.h-100{
+  width: 100px;
+}
+.w-100{
+  width: 50% !important;
+}
+.card-border{
+  height: 95%;
+  padding: 15px;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
