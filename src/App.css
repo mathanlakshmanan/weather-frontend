@@ -18,14 +18,18 @@
 }
 }
 
+img {
+  margin-bottom: 5px;
+}
+
 .h-150{
-  height: 150px;
+  height: 150px !important;
 }
 .h-100{
-  width: 100px;
+  height: 100px !important;
 }
 .w-100{
-  width: 50% !important;
+  width: 100px !important;
 }
 .card-border{
   height: 95%;
