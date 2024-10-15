@@ -19,7 +19,7 @@ function App() {
   const [sunset, setSunset] = useState();
 
   useEffect(() => {
-    document.body.style.backgroundImage = "linear-gradient(327deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%)";    
+    document.body.style.backgroundImage = "linear-gradient(327deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(9,9,121,1) 100%)";    
   }, []);
 
   const weatherFun = async () => {
