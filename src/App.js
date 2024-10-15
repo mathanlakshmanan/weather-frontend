@@ -35,9 +35,12 @@ function App() {
     const result = await axios.post("https://weather-backend-sv6y.onrender.com/weather", {
       city: city,
     });
-
+    if(result.data.error){
+      err.innerText = "Please Enter Valid City Only!!!";
+      setLoader(false);
+      return;
+    }
     setWeather(result.data.weather);
-    console.log("mathan", result.data.weather);
     
     if(result){
       setLoader(false);
